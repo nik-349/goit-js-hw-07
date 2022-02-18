@@ -1,14 +1,9 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-
-
 const ref = {
     galaryListHtml: document.querySelector('.gallery'),
-    gallaryImageLigthBox: document.querySelector('body')
 }
-
-ref.gallaryImageLigthBox.addEventListener('click', tupImG)
 
 
 function gallaryFunHtml(lightbox) {
@@ -23,15 +18,14 @@ function gallaryFunHtml(lightbox) {
   </a>`
     }).join('')
 }
-ref.galaryListHtml.insertAdjacentHTML('beforeend', gallaryFunHtml(galleryItems));
-
 
 function tupImG(e) {
-  
-  if (e.target.nodeName === 'IMG') {
-    e.preventDefault()
-new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });        
-
-  }
+  e.preventDefault()
 }
 
+
+
+ref.galaryListHtml.insertAdjacentHTML('beforeend', gallaryFunHtml(galleryItems));
+ref.galaryListHtml.addEventListener('click', tupImG)
+
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });         
